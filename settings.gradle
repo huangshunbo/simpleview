@@ -1,0 +1,2 @@
+include ':sample-simplewidgets', ':simplewidgets'
+rootProject.name = 'artifact'

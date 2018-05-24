@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.android.minlib.simplewidget.simple.TitleView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:title="这是一个magic Title哦yahoo"
+        app:title_txt_color="#cead78"
+        app:title_txt_size="20dp"
+        app:subtitle_txt_color="#999999"
+        app:subtitle_txt_size="15dp"
+        app:item_margin="5dp"
+        app:item_txt_size="15dp"
+        app:item_txt_color="#333333"
+        app:left_txt_1="返回"
+        app:left_txt_2="关闭"
+        app:left_icon_1="@mipmap/icon_back"
+        app:left_icon_2="@mipmap/icon_back"
+        app:left_margin="5dp"
+        app:right_txt_1="菜单菜单"
+        app:right_txt_2="菜单"
+        app:right_margin="15dp"
+        app:right_icon_1="@drawable/titleview_icon_close"
+        app:right_icon_2="@drawable/titleview_icon_close"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/transparent"/>
+
+    <com.android.minlib.simplewidget.simple.LinearWrapLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1测试1测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1测试1测试1测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1测试1测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1测试1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="测试1"
+            />
+    </com.android.minlib.simplewidget.simple.LinearWrapLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/transparent"/>
+
+    <com.android.minlib.simplewidget.simple.AutoWrapTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello我是一串magic字符串yahoho,and i am legendary。hello我是一串magic字符串yahoho,and i am legendary"/>
+</LinearLayout>

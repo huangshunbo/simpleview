@@ -1,0 +1,1 @@
+Banner https://github.com/bingoogolapple/BGABanner-Android

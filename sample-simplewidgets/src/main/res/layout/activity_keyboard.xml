@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.android.minlib.simplewidget.keyboard.EditView
+        android:id="@+id/editview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:hint="身份证号: "
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#BABABA"/>
+    <com.android.minlib.simplewidget.keyboard.SKeyboardView
+        android:id="@+id/skeyboardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#999999"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@drawable/selector_keyboard_key"
+        android:keyPreviewHeight="64dp"
+        android:keyPreviewLayout="@layout/view_keyboard_preview"
+        android:keyTextColor="@color/default_keyTextColor"
+        android:keyTextSize="26dp"
+        android:labelTextSize="24dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:shadowColor="@color/default_keyShadowColor"
+        android:shadowRadius="0.0"
+        android:visibility="gone" />
+</LinearLayout>

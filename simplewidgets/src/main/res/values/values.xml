@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--tabviewpager-->
+    <style name="tabviewpagermanager_default_attr" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="tab_animator">@anim/scale_out</item>
+        <item name="tab_icon_size">20dp</item>
+        <item name="tab_text_margin">2dp</item>
+        <item name="tab_text_size">12dp</item>
+        <item name="tab_text_color">@color/tabviewpager_tab_text_selecter</item>
+        <item name="tab_background">@color/color_white</item>
+        <item name="tab_height">48dp</item>
+    </style>
+</resources>

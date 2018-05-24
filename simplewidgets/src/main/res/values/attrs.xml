@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--flod-->
+    <declare-styleable name="FlodView">
+        <attr name="foldView" format="reference"/>
+        <attr name="contentView" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="TitleFlodView">
+        <attr name="titleTxt" format="string"/>
+        <attr name="titleSize" format="dimension"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="arrowIcon" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="TextFlodView">
+        <attr name="arrow" format="reference"/>
+        <attr name="content" format="reference"/>
+        <attr name="flodLines" format="integer"/>
+    </declare-styleable>
+    <!--gesturecipher-->
+    <declare-styleable name="GestureView">
+        <attr format="reference" name="drawablePointOriginal"/>
+        <attr format="reference" name="drawablePointClick"/>
+        <attr format="reference" name="drawablePointError"/>
+        <attr format="reference" name="drawableLine"/>
+        <attr format="reference" name="drawableLineSemicircle"/>
+        <attr format="reference" name="drawableLineErroe"/>
+        <attr format="reference" name="drawableLineErroeSemicircle"/>
+        <attr format="boolean" name="isShowTrack"/>
+    </declare-styleable>
+    <!--simple-->
+    <declare-styleable name="LinearWrapLayout">
+        <attr name="horizontal_spacing" format="dimension" />
+        <attr name="vertical_spacing" format="dimension" />
+        <attr name="child_width" format="dimension" />
+        <attr name="child_height" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="TitleView">
+        <attr name="left_icon_1" format="reference"/>
+        <attr name="left_icon_2" format="reference"/>
+        <attr name="right_icon_1" format="reference"/>
+        <attr name="right_icon_2" format="reference"/>
+        <attr name="left_txt_1" format="string"/>
+        <attr name="left_txt_2" format="string"/>
+        <attr name="right_txt_1" format="string"/>
+        <attr name="right_txt_2" format="string"/>
+        <attr name="title" format="string"/>
+        <attr name="subtitle" format="string"/>
+        <attr name="left_margin" format="dimension"/>
+        <attr name="right_margin" format="dimension"/>
+        <attr name="item_margin" format="dimension"/>
+        <attr name="item_txt_size" format="dimension"/>
+        <attr name="title_txt_size" format="dimension"/>
+        <attr name="subtitle_txt_size" format="dimension"/>
+        <attr name="item_txt_color" format="color"/>
+        <attr name="title_txt_color" format="color" />
+        <attr name="subtitle_txt_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="NumberRedView">
+        <attr name="dot_radius" format="dimension" />
+        <attr name="dot_color" format="color|reference" />
+        <attr name="dot_font_color" format="color|reference" />
+        <attr name="dot_font_size" format="dimension" />
+    </declare-styleable>
+    <!--tabviewpager-->
+    <declare-styleable name="TabViewPagerManager">
+        <attr name="tab_animator" format="reference"/>
+        <attr name="tab_icon_size" format="dimension"/>
+        <attr name="tab_text_margin" format="dimension"/>
+        <attr name="tab_text_size" format="dimension"/>
+        <attr name="tab_text_color" format="reference"/>
+        <attr name="tab_background" format="reference"/>
+        <attr name="tab_height" format="dimension" />
+    </declare-styleable>
+
+</resources>

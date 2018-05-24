@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.android.minlib.simplewidget.flod.FlodView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:foldView="@id/title1"
+        app:contentView="@id/content1"
+        android:paddingLeft="50dp">
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题1"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/content1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内容1内容1内容1内容1内容1\n内容1内容1内容1"
+            android:textSize="15dp"/>
+    </com.android.minlib.simplewidget.flod.FlodView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/transparent"/>
+
+    <com.android.minlib.simplewidget.flod.FlodView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:foldView="@id/title2"
+        app:contentView="@id/content2"
+        android:paddingLeft="50dp">
+        <LinearLayout
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="标题1"
+                android:textSize="18dp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/flod_arrow_open"
+                android:layout_marginRight="15dp"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/content2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内容1内容1内容1内容1内容1\n内容1内容1内容1"
+            android:textSize="15dp"/>
+    </com.android.minlib.simplewidget.flod.FlodView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/transparent"/>
+
+    <com.android.minlib.simplewidget.flod.TitleFlodView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTxt="标题3"
+        app:titleColor="#eacd78"
+        app:titleSize="22dp"
+        app:contentView="@id/content3"
+        app:arrowIcon="@drawable/flod_arrow_open"
+        android:paddingLeft="15dp">
+        <TextView
+            android:id="@+id/content3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内容123内容123内容123内容123内容123"/>
+
+    </com.android.minlib.simplewidget.flod.TitleFlodView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/transparent"/>
+
+    <com.android.minlib.simplewidget.flod.TextFlodView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:content="@id/content4"
+        app:arrow="@id/arrow4"
+        app:flodLines="2">
+        <TextView
+            android:id="@+id/content4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="111111222223333344444555556666677777888888999990000001111112222233333444445555566666777778888889999900000011111122222333334444455555666667777788888899999000000"
+            />
+        <ImageView
+            android:id="@+id/arrow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flod_arrow_open"
+            android:layout_gravity="center"/>
+    </com.android.minlib.simplewidget.flod.TextFlodView>
+</LinearLayout>
