@@ -26,17 +26,21 @@
 
 
 
-    <com.android.minlib.simplewidget.simple.NumberRedView
+    <com.android.minlib.simplewidget.simple.AvatarImageView
         android:id="@+id/dotView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignRight="@id/main_tab_item_content"
         android:layout_alignTop="@id/main_tab_item_content"
         android:layout_marginRight="-10dp"
         android:layout_marginTop="-8dp"
-        app:dot_color="#FFFF6040"
-        app:dot_font_size="8dp"
-        app:dot_radius="8dp" />
+        app:aiv_BoarderColor="@color/color_black"
+        app:aiv_BoarderWidth="2dp"
+        app:aiv_CornerRadius="45dp"
+        app:aiv_ShowBoarder="true"
+        app:aiv_TextColor="@color/color_white"
+        app:aiv_TextMaskRatio="0.6"
+        app:aiv_TextSizeRatio="0.6"/>
 
 
 </RelativeLayout>

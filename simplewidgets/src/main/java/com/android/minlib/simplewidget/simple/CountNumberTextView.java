@@ -26,7 +26,11 @@ public class CountNumberTextView extends TextView {
         //显示小数点后两位且带千分位
         public static final DecimalFormat FLOATREGEX_QUANTILE = new DecimalFormat(",##0.00");
 
-        public CountNumberTextView(Context context, AttributeSet attrs) {
+    public CountNumberTextView(Context context) {
+        super(context);
+    }
+
+    public CountNumberTextView(Context context, AttributeSet attrs) {
             super(context, attrs);
         }
 

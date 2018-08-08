@@ -49,7 +49,6 @@ public class VerticalWebView extends WebView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
 
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mLastMotionY = event.getY();

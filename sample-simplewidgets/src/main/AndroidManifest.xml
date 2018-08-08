@@ -28,6 +28,8 @@
         <activity android:name="com.android.minlib.samplesimplewidget.SimpleViewActivity" android:launchMode="singleTask" />
         <activity android:name="com.android.minlib.samplesimplewidget.tab.RefreshLayoutActivity" android:launchMode="singleTask"/>
         <activity android:name="com.android.minlib.samplesimplewidget.vertical.VerticalActivity" android:launchMode="singleTask"/>
+        <activity android:name=".TabPageIndicatorActivity" android:launchMode="singleTask"/>
+
 
         <provider
             android:name="android.support.v4.content.FileProvider"

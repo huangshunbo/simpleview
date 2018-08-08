@@ -28,7 +28,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@android:color/transparent"/>
+        android:background="@color/color_gray"/>
 
     <com.android.minlib.simplewidget.flod.FlodView
         android:layout_width="match_parent"
@@ -67,7 +67,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@android:color/transparent"/>
+        android:background="@color/color_gray"/>
 
     <com.android.minlib.simplewidget.flod.TitleFlodView
         android:layout_width="match_parent"
@@ -89,7 +89,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@android:color/transparent"/>
+        android:background="@color/color_gray"/>
 
     <com.android.minlib.simplewidget.flod.TextFlodView
         android:layout_width="match_parent"

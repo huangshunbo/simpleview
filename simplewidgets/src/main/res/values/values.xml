@@ -10,4 +10,5 @@
         <item name="tab_background">@color/color_white</item>
         <item name="tab_height">48dp</item>
     </style>
+
 </resources>

@@ -1,2 +1,2 @@
 include ':sample-simplewidgets', ':simplewidgets'
-rootProject.name = 'artifact'
+rootProject.name = 'simplewidgets'

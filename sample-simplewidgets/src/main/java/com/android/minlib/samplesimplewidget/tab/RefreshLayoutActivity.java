@@ -11,7 +11,6 @@ import com.android.minlib.samplesimplewidget.R;
 import com.android.minlib.simplewidget.tabviewpager.TabViewPagerManager;
 import java.util.ArrayList;
 import java.util.List;
-import static android.support.design.widget.TabLayout.MODE_FIXED;
 
 public class RefreshLayoutActivity extends AppCompatActivity{
 
@@ -30,11 +29,14 @@ public class RefreshLayoutActivity extends AppCompatActivity{
         tabFragmentList.add(widget);
         tabFragmentList.add(me);
         tabViewPagerManager = findViewById(R.id.activity_tagviewpager);
+        //创建三个TAB并把Fragment列表传入
         tabViewPagerManager
                 .createTab("ONE",R.drawable.icon_home)
                 .createTab("TWO",R.drawable.icon_widget)
                 .createTab("THREE",R.drawable.icon_mine)
                 .build(tabFragmentList,getSupportFragmentManager());
+        //更新第1个TAB的角标
+        tabViewPagerManager.updateTabNum(1,10);
     }
 
     public <T extends Fragment> T getSavedInstanceFragment(Bundle savedInstanceState,Class<T> mClass) {

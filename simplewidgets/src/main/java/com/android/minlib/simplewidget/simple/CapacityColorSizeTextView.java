@@ -71,7 +71,7 @@ public class CapacityColorSizeTextView extends TextView {
             String txt = txts.get(i);
             int textColor = colors.get(i);
             int textSize = sizes.get(i);
-            ForegroundColorSpan colorSpan = new ForegroundColorSpan(ContextCompat.getColor(getContext(),textColor));
+            ForegroundColorSpan colorSpan = new ForegroundColorSpan(textColor > 0 ? ContextCompat.getColor(getContext(),textColor) : textColor);
             AbsoluteSizeSpan sizeSpan = new AbsoluteSizeSpan(textSize);
             start = end;
             end = start + txt.length();

@@ -7,9 +7,10 @@
     <com.android.minlib.simplewidget.simple.TitleView
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        app:title="这是一个magic Title哦yahoo"
+        app:title="这是一个Title"
         app:title_txt_color="#cead78"
         app:title_txt_size="20dp"
+        app:subtitle="呵呵"
         app:subtitle_txt_color="#999999"
         app:subtitle_txt_size="15dp"
         app:item_margin="5dp"

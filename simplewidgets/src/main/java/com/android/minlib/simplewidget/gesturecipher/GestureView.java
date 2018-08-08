@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -19,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 /**
  * @author: huangshunbo
  * @Filename: GestureView
@@ -37,11 +40,8 @@ public class GestureView extends View {
     private boolean checking;
     private Bitmap locus_round_original;
     private Bitmap locus_round_click;
-    private Bitmap locus_round_click_error;
-    private Bitmap locus_line;
-    private Bitmap locus_line_semicircle;
-    private Bitmap locus_line_semicircle_error;
-    private Bitmap locus_line_error;
+    private int lineColor;
+    private int lineWidth;
     private static final long CLEAR_TIME = 0L;
     private final Matrix mMatrix;
     private int lineAlpha;
@@ -50,7 +50,6 @@ public class GestureView extends View {
     private boolean movingNoPoint;
     private float moveingX;
     private float moveingY;
-    private boolean isShowTrack;
     private GestureView.OnCompleteListener mCompleteListener;
 
     public GestureView(Context context) {
@@ -84,20 +83,11 @@ public class GestureView extends View {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.GestureView);
         int drawablePointOriginal = typedArray.getResourceId(R.styleable.GestureView_drawablePointOriginal, R.drawable.gesture_point_original);
         int drawablePointClick = typedArray.getResourceId(R.styleable.GestureView_drawablePointClick, R.drawable.gesture_point_click);
-        int drawablePointError = typedArray.getResourceId(R.styleable.GestureView_drawablePointError, R.drawable.gesture_point_click_error);
-        int drawableLine = typedArray.getResourceId(R.styleable.GestureView_drawableLine, R.drawable.gesture_line);
-        int drawableLineSemicircle = typedArray.getResourceId(R.styleable.GestureView_drawableLineSemicircle, R.drawable.gesture_line_semicircle);
-        int drawableLineErroe = typedArray.getResourceId(R.styleable.GestureView_drawableLineErroe, R.drawable.gesture_line_error);
-        int drawableLineErroeSemicircle = typedArray.getResourceId(R.styleable.GestureView_drawableLineErroeSemicircle, R.drawable.gesture_line_semicircle_error);
-        this.isShowTrack = typedArray.getBoolean(R.styleable.GestureView_isShowTrack, false);
+        this.lineColor = typedArray.getColor(R.styleable.GestureView_linecolor,Color.GREEN);
+        this.lineWidth = typedArray.getDimensionPixelSize(R.styleable.GestureView_lineWidth,10);
         typedArray.recycle();
         this.locus_round_original = BitmapFactory.decodeResource(this.getResources(), drawablePointOriginal);
         this.locus_round_click = BitmapFactory.decodeResource(this.getResources(), drawablePointClick);
-        this.locus_round_click_error = BitmapFactory.decodeResource(this.getResources(), drawablePointError);
-        this.locus_line = BitmapFactory.decodeResource(this.getResources(), drawableLine);
-        this.locus_line_semicircle = BitmapFactory.decodeResource(this.getResources(), drawableLineSemicircle);
-        this.locus_line_error = BitmapFactory.decodeResource(this.getResources(), drawableLineErroe);
-        this.locus_line_semicircle_error = BitmapFactory.decodeResource(this.getResources(), drawableLineErroeSemicircle);
     }
 
     private boolean initCache() {
@@ -121,11 +111,6 @@ public class GestureView extends View {
                 float sf = roundMinW * 1.0F / (float) this.locus_round_original.getWidth();
                 this.locus_round_original = zoom(this.locus_round_original, sf);
                 this.locus_round_click = zoom(this.locus_round_click, sf);
-                this.locus_round_click_error = zoom(this.locus_round_click_error, sf);
-                this.locus_line = zoom(this.locus_line, sf);
-                this.locus_line_semicircle = zoom(this.locus_line_semicircle, sf);
-                this.locus_line_error = zoom(this.locus_line_error, sf);
-                this.locus_line_semicircle_error = zoom(this.locus_line_semicircle_error, sf);
                 roundW = (float) (this.locus_round_original.getWidth() / 2);
             }
 
@@ -147,36 +132,16 @@ public class GestureView extends View {
     }
 
 
+    @Override
     public void onDraw(Canvas canvas) {
         if (!this.isCache && !this.initCache()) {
             super.onDraw(canvas);
         } else {
             Point[][] var2 = this.mPoints;
             int var3 = var2.length;
-
             int i;
-            for (i = 0; i < var3; ++i) {
-                Point[] mPoint = var2[i];
-                Point[] var6 = mPoint;
-                int var7 = mPoint.length;
 
-                for (int var8 = 0; var8 < var7; ++var8) {
-                    Point p = var6[var8];
-                    if (p.mState == 1) {
-                        if (this.isShowTrack) {
-                            canvas.drawBitmap(this.locus_round_click, p.mX - this.r, p.mY - this.r, this.mPaint);
-                        } else {
-                            canvas.drawBitmap(this.locus_round_original, p.mX - this.r, p.mY - this.r, this.mPaint);
-                        }
-                    } else if (p.mState == 2) {
-                        canvas.drawBitmap(this.locus_round_click_error, p.mX - this.r, p.mY - this.r, this.mPaint);
-                    } else {
-                        canvas.drawBitmap(this.locus_round_original, p.mX - this.r, p.mY - this.r, this.mPaint);
-                    }
-                }
-            }
-
-            if (this.isShowTrack && this.mSelectedPoints.size() > 0) {
+            if (this.mSelectedPoints.size() > 0) {
                 int tmpAlpha = this.mPaint.getAlpha();
                 this.mPaint.setAlpha(this.lineAlpha);
                 Point tp = (Point) this.mSelectedPoints.get(0);
@@ -196,24 +161,34 @@ public class GestureView extends View {
                 this.lineAlpha = this.mPaint.getAlpha();
             }
 
+
+            for (i = 0; i < var3; ++i) {
+                Point[] mPoint = var2[i];
+                Point[] var6 = mPoint;
+                int var7 = mPoint.length;
+
+                for (int var8 = 0; var8 < var7; ++var8) {
+                    Point p = var6[var8];
+                    if (p.mState == 1) {
+                        int r = (this.locus_round_click.getWidth() + this.locus_round_click.getHeight())/4;
+                        canvas.drawBitmap(this.locus_round_click, p.mX - r, p.mY - r, this.mPaint);
+                    } else {
+                        int r = (this.locus_round_original.getWidth() + this.locus_round_original.getHeight())/4;
+                        canvas.drawBitmap(this.locus_round_original, p.mX - r, p.mY - r, this.mPaint);
+                    }
+                }
+            }
+
+
+
         }
     }
 
     private void drawLine(Canvas canvas, Point a, Point b) {
         canvas.save();
-        float ah = (float) distance((double) a.mX, (double) a.mY, (double) b.mX, (double) b.mY);
-        float degrees = this.getDegrees(a, b);
-        canvas.rotate(degrees, a.mX, a.mY);
-        if (a.mState == 2) {
-            this.mMatrix.setScale(ah / (float) this.locus_line_error.getWidth(), 1.0F);
-            this.mMatrix.postTranslate(a.mX, a.mY - (float) this.locus_line_error.getHeight() / 2.0F);
-            canvas.drawBitmap(this.locus_line_error, this.mMatrix, this.mPaint);
-        } else {
-            this.mMatrix.setScale(ah / (float) this.locus_line.getWidth(), 1.0F);
-            this.mMatrix.postTranslate(a.mX, a.mY - (float) this.locus_line.getHeight() / 2.0F);
-            canvas.drawBitmap(this.locus_line, this.mMatrix, this.mPaint);
-        }
-
+        mPaint.setColor(lineColor);
+        mPaint.setStrokeWidth(lineWidth);
+        canvas.drawLine(a.mX,a.mY,b.mX,b.mY,mPaint);
         canvas.restore();
     }
 
@@ -373,7 +348,7 @@ public class GestureView extends View {
         return true;
     }
 
-    public void markError(long time) {
+    private void markError(long time) {
         Point p;
         for (Iterator var3 = this.mSelectedPoints.iterator(); var3.hasNext(); p.mState = 2) {
             p = (Point) var3.next();
@@ -396,6 +371,7 @@ public class GestureView extends View {
             this.lineAlpha = 130;
             this.postInvalidate();
             this.task = new TimerTask() {
+                @Override
                 public void run() {
                     GestureView.this.resetView();
                     GestureView.this.postInvalidate();
@@ -409,14 +385,6 @@ public class GestureView extends View {
             this.postInvalidate();
         }
 
-    }
-
-    public void setShowTrack(boolean showTrack) {
-        this.isShowTrack = showTrack;
-    }
-
-    public boolean isShowTrack() {
-        return this.isShowTrack;
     }
 
     public void setOnCompleteListener(OnCompleteListener mCompleteListener) {
@@ -447,18 +415,22 @@ public class GestureView extends View {
     public interface OnCompleteListener {
         void onComplete(int var1, String var2);
     }
-    public Bitmap zoom(Bitmap bitmap, float zf) {
+
+    private Bitmap zoom(Bitmap bitmap, float zf) {
         android.graphics.Matrix matrix = new android.graphics.Matrix();
         matrix.postScale(zf, zf);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
-    public double distance(double x1, double y1, double x2, double y2) {
+
+    private double distance(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.abs(x1 - x2) * Math.abs(x1 - x2) + Math.abs(y1 - y2) * Math.abs(y1 - y2));
     }
-    public double pointTotoDegrees(double y, double x) {
+
+    private double pointTotoDegrees(double y, double x) {
         return Math.toDegrees(Math.atan2(y, x));
     }
-    public boolean checkInRound(float sx, float sy, float r, float x, float y) {
-        return Math.sqrt((double)((sx - x) * (sx - x) + (sy - y) * (sy - y))) < (double)r;
+
+    private boolean checkInRound(float sx, float sy, float r, float x, float y) {
+        return Math.sqrt((double) ((sx - x) * (sx - x) + (sy - y) * (sy - y))) < (double) r;
     }
 }

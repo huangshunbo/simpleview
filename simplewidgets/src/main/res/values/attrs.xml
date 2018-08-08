@@ -20,12 +20,8 @@
     <declare-styleable name="GestureView">
         <attr format="reference" name="drawablePointOriginal"/>
         <attr format="reference" name="drawablePointClick"/>
-        <attr format="reference" name="drawablePointError"/>
-        <attr format="reference" name="drawableLine"/>
-        <attr format="reference" name="drawableLineSemicircle"/>
-        <attr format="reference" name="drawableLineErroe"/>
-        <attr format="reference" name="drawableLineErroeSemicircle"/>
-        <attr format="boolean" name="isShowTrack"/>
+        <attr format="color" name="linecolor"/>
+        <attr format="dimension" name="lineWidth"/>
     </declare-styleable>
     <!--simple-->
     <declare-styleable name="LinearWrapLayout">
@@ -55,13 +51,6 @@
         <attr name="title_txt_color" format="color" />
         <attr name="subtitle_txt_color" format="color" />
     </declare-styleable>
-
-    <declare-styleable name="NumberRedView">
-        <attr name="dot_radius" format="dimension" />
-        <attr name="dot_color" format="color|reference" />
-        <attr name="dot_font_color" format="color|reference" />
-        <attr name="dot_font_size" format="dimension" />
-    </declare-styleable>
     <!--tabviewpager-->
     <declare-styleable name="TabViewPagerManager">
         <attr name="tab_animator" format="reference"/>
@@ -73,4 +62,48 @@
         <attr name="tab_height" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="AvatarImageView">
+        <attr name="aiv_TextSizeRatio" format="reference|float" />
+        <attr name="aiv_TextMaskRatio" format="reference|float" />
+        <attr name="aiv_BoarderColor" format="reference|color" />
+        <attr name="aiv_TextColor" format="reference|color" />
+        <attr name="aiv_BoarderWidth" format="reference|dimension" />
+        <attr name="aiv_ShowBoarder" format="reference|boolean" />
+        <attr name="aiv_CornerRadius" format="reference|dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="TabItem">
+        <attr name="android:text" />
+        <attr name="android:icon" />
+        <attr name="android:layout" />
+    </declare-styleable>
+    <declare-styleable name="TabLayout">
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabIndicatorHeight" format="dimension" />
+        <attr name="tabContentStart" format="dimension" />
+        <attr name="tabBackground" format="reference" />
+        <attr name="tabMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabMinWidth" format="dimension" />
+        <attr name="tabMaxWidth" format="dimension" />
+        <attr name="tabTextAppearance" format="reference" />
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabSelectedTextColor" format="color" />
+        <attr name="tabPaddingStart" format="dimension" />
+        <attr name="tabPaddingTop" format="dimension" />
+        <attr name="tabPaddingEnd" format="dimension" />
+        <attr name="tabPaddingBottom" format="dimension" />
+        <attr name="tabPadding" format="dimension" />
+        <attr name="tabIndicatorWidth">
+            <enum name="fill" value="0" />
+            <enum name="withTitle" value="1" />
+            <enum name="withIcon" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>

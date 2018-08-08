@@ -20,5 +20,6 @@ public class GestureViewActivity extends AppCompatActivity{
                 mGestureView.clearPassword();
             }
         });
+        mGestureView.clearPassword();
     }
 }

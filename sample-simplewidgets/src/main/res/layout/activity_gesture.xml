@@ -9,5 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        app:isShowTrack="true"/>
+        app:drawablePointClick="@drawable/gesture_point_click_error"
+        app:drawablePointOriginal="@drawable/gesture_point_original"
+        app:linecolor="@color/colorPrimary"
+        app:lineWidth="5dp"
+        />
 </RelativeLayout>

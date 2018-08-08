@@ -45,7 +45,7 @@ public class TwoFragment extends Fragment implements IDropDownObserver,IFilterTh
                 FilterBarType.create(3,"标题3", R.drawable.common_filter_bar_title_image_up, R.drawable.common_filter_bar_title_image_down),
                 four = FilterBarType.create(4,"标题4", R.drawable.common_filter_bar_title_image_filter)
         );
-        mCommonFilterBar.setOrientation(LinearLayout.HORIZONTAL);
+//        mCommonFilterBar.setOrientation(LinearLayout.HORIZONTAL);
 
         dropDownMenu = new DropDownMenu(getContext(),mCommonFilterBar);
         dropDownMenu.setTheme(R.color.color_orange,R.mipmap.common_filter_checked);

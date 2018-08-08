@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.android.minlib.simplewidget.simple.TitleView;
+
 public class SimpleViewActivity extends AppCompatActivity{
 
     @Override
@@ -12,5 +14,6 @@ public class SimpleViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_simpleview);
+
     }
 }

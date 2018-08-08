@@ -2,6 +2,7 @@ package com.android.minlib.simplewidget.tabviewpager;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -12,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.minlib.simplewidget.R;
-import com.android.minlib.simplewidget.simple.NumberRedView;
+import com.android.minlib.simplewidget.simple.AvatarImageView;
+
 /**
  * @author: huangshunbo
  * @Filename: TabView
@@ -24,7 +26,7 @@ public class TabView extends FrameLayout {
 
     ImageView ivIcon;
     TextView tvTitle;
-    NumberRedView nrvCorner;
+    AvatarImageView nrvCorner;
     private Context mContext;
 
     public TabView(Context context, String text, Drawable icon, int iconSize, int textMargin, int textSize, ColorStateList textColor) {
@@ -33,7 +35,7 @@ public class TabView extends FrameLayout {
         inflate(context, R.layout.tabviewpager_tabview, this);
         ivIcon = (ImageView) findViewById(R.id.main_tab_item_img);
         tvTitle = (TextView) findViewById(R.id.main_tab_item_txt);
-        nrvCorner = (NumberRedView) findViewById(R.id.dotView);
+        nrvCorner = (AvatarImageView) findViewById(R.id.dotView);
         if (!TextUtils.isEmpty(text)) tvTitle.setText(text);
         if (icon != null) ivIcon.setImageDrawable(icon);
 
@@ -58,7 +60,7 @@ public class TabView extends FrameLayout {
     }
 
     public void showNum(int num) {
-        nrvCorner.show(num, true);
+        nrvCorner.setTextAndColor(""+num,Color.RED);
     }
 
     public void showIcon(int resId) {
